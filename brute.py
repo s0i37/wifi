@@ -121,8 +121,8 @@ class Brute:
         seen_sender = p[Dot11].addr2
         seen_bssid = p[Dot11].addr3
         key_mic_is_set = 0b100000000
-        if self.target.lower() == seen_bssid.lower() and \
-        self.target.lower() == seen_sender.lower() and \
+        #if self.target.lower() == seen_bssid.lower() and \
+        if self.target.lower() == seen_sender.lower() and \
         self.source.lower() == seen_receiver.lower() and \
         not int.from_bytes(bytes(p[EAPOL].payload)[1:3], byteorder='big') & key_mic_is_set:
             self.anonce = bytes(p[EAPOL].payload)[13:13+32]
@@ -138,8 +138,8 @@ class Brute:
         seen_sender = p[Dot11].addr2
         seen_bssid = p[Dot11].addr3
         key_mic_is_set = 0b100000000
-        if self.target.lower() == seen_bssid.lower() and \
-        self.target.lower() == seen_sender.lower() and \
+        #if self.target.lower() == seen_bssid.lower() and \
+        if self.target.lower() == seen_sender.lower() and \
         self.source.lower() == seen_receiver.lower() and \
         int.from_bytes(bytes(p[EAPOL].payload)[1:3], byteorder='big') & key_mic_is_set:
             self.amic = bytes(p[EAPOL].payload)[77:77+16]
@@ -201,7 +201,7 @@ class Brute:
         Thread(target=self.get_association_response).start()
         Thread(target=self.get_m1).start()
         Thread(target=self.get_m3).start()
-        sleep(0.01)
+        sleep(0.1)
         sendp(association_request, verbose=0)
         wait = 0
         while (not self.is_assoc_found or not self.anonce) and wait < self.TIMEOUT:

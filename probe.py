@@ -12,7 +12,7 @@ def probe_request(essid):
 	source = "00:C0:CA:AE:BE:A1"
 	target = "ff:ff:ff:ff:ff:ff"
 	radio = RadioTap()
-	probe = Dot11(subtype=4, addr1=target, addr2=source, addr3=source, SC=0x3060)/\
+	probe = Dot11(subtype=4, addr1=target, addr2=source, addr3=target, SC=0x3060)/\
 	 Dot11ProbeReq()/\
 	 Dot11Elt(ID='SSID', info=essid)/\
 	 Dot11Elt(ID='Rates', info=b'\x8c\x12\x98\x24\xb0\x48\x60\x6c')/\
