@@ -7,7 +7,7 @@ RESET='\x1b[0m'
 
 [ -z "$IFACE" ] && IFACE=wlan0
 [ -z "$TIMEOUT" ] && TIMEOUT=15
-[ -z "$THREADS" ] && TREADS=4
+[ -z "$THREADS" ] && THREADS=4
 passwords=()
 [[ $# -ge 1 ]] && passwords=($*) || while read password; do passwords+=("$password"); done
 #passwords=(12345678 123456789 1234567890 qwertyuiop 1q2w3e4r 987654321 1q2w3e4r5t qazwsxedc 11111111)
