@@ -1,3 +1,17 @@
+## scan.sh
+
+Pretty print wrapper for internal Linux utility `iw dev wlan0 scan`. Doesn't require monitor mode, may work on every network card.
+
+![scan.sh](demo/scan.png)
+
+Filtering results by network name (any `iw` results supported):
+
+![scan.sh](demo/scan2.png)
+
+Filtering results by network parameters:
+
+![scan.sh](demo/scan3.png)
+
 ## wpa_brute.sh
 
 Online bruteforce WPA PSK using `wpa_supplicant`. Supports multi threading.
